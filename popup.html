@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Unbounce Variant Conversion Rate Calculator and Comparison Tool</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <form id="rateForm">
+          <table>
+            <tr>
+              <th>Variant</th>
+              <th>Result</th>
+              <th>Current Conversion Rate</th>
+              <th>Current Views</th>
+              <th>Current Conversions</th>
+              <th>Champ Starting Views</th>
+              <th>Champ Starting Conversions</th>
+              <th>Champ Current Conversion Rate</th>
+            </tr>
+            <tr>
+              <td>Champ</td>
+              <td></td>
+              <td></td>
+              <td><input type="number" id="champcurrentViews" style="width: 80px;" required></td>
+              <td><input type="number" id="champcurrentConversions" style="width: 80px;" required></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Variant 1</td>
+              <td><input type="text" class="result" id="v1Result" style="width: 80px;" disabled></td>
+              <td><input type="percentage" id="v1currentconversionRate" style="width: 80px;" disabled></td>
+              <td><input type="number" id="v1currentViews" style="width: 80px;" ></td>
+              <td><input type="number" id="v1currentConversions" style="width: 80px;" ></td>
+              <td><input type="number" id="champstartingViews1" style="width: 80px;" ></td>
+              <td><input type="number" id="champstartingConversions1" style="width: 80px;" ></td>
+              <td><input type="percentage" id="champcurrentconversionRate1" style="width: 80px;" disabled></td>
+            </tr>
+            <tr>
+              <td>Variant 2</td>
+              <td><input type="text" class="result" id="v2Result" style="width: 80px;" disabled></td>
+              <td><input type="percentage" id="v2currentconversionRate" style="width: 80px;" disabled></td>
+              <td><input type="number" id="v2currentViews" style="width: 80px;" ></td>
+              <td><input type="number" id="v2currentConversions" style="width: 80px;" ></td>
+              <td><input type="number" id="champstartingViews2" style="width: 80px;" ></td>
+              <td><input type="number" id="champstartingConversions2" style="width: 80px;" ></td>
+              <td><input type="percentage" id="champcurrentconversionRate2" style="width: 80px;" disabled></td>
+            </tr>
+            <tr>
+              <td>Variant 3</td>
+              <td><input type="text" class="result" id="v3Result" style="width: 80px;" disabled></td>
+              <td><input type="percentage" id="v3currentconversionRate" style="width: 80px;" disabled></td>
+              <td><input type="number" id="v3currentViews" style="width: 80px;" ></td>
+              <td><input type="number" id="v3currentConversions" style="width: 80px;" ></td>
+              <td><input type="number" id="champstartingViews3" style="width: 80px;" ></td>
+              <td><input type="number" id="champstartingConversions3" style="width: 80px;" ></td>
+              <td><input type="percentage" id="champcurrentconversionRate3" style="width: 80px;" disabled></td>
+            </tr>
+          </table>
+          <br>
+            <button type="button" id="calculate" class="calculate-btn">Calculate</button>
+            <button type="reset" id="reset" class="reset-btn">Reset</button>
+        </form>
+    </div>
+    <footer>
+        <br>Developed by Kevin Hansberger with Sage Media.
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
