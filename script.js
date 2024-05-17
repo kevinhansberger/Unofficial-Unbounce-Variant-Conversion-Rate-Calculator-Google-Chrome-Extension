@@ -1,23 +1,23 @@
 document.getElementById('calculate').addEventListener('click', function() {
     // Getting input values from the form
-    const champCurrentViews = parseFloat(document.getElementById('champcurrentViews').value);
+    const champCurrentVisitors = parseFloat(document.getElementById('champcurrentVisitors').value);
     const champCurrentConversions = parseFloat(document.getElementById('champcurrentConversions').value);
 
     // Iterating through each variant (now for three variants)
     for (let i = 1; i <= 3; i++) {
-        const variantCurrentViewsInput = document.getElementById(`v${i}currentViews`);
-        const variantCurrentViews = parseFloat(variantCurrentViewsInput.value);
-        if (!variantCurrentViews) { // Check if currentViews is empty or zero
+        const variantCurrentVisitorsInput = document.getElementById(`v${i}currentVisitors`);
+        const variantCurrentVisitors = parseFloat(variantCurrentVisitorsInput.value);
+        if (!variantCurrentVisitors) { // Check if currentViews is empty or zero
             document.getElementById(`v${i}Result`).value = ''; // Keep the result field empty
             continue; // Skip the rest of the loop for this variant
         }
         const variantCurrentConversions = parseFloat(document.getElementById(`v${i}currentConversions`).value);
-        const champStartingViews = parseFloat(document.getElementById(`champstartingViews${i}`).value);
+        const champStartingVisitors = parseFloat(document.getElementById(`champstartingVisitors${i}`).value);
         const champStartingConversions = parseFloat(document.getElementById(`champstartingConversions${i}`).value);
 
         // Calculate conversion rates for both champ and variant
-        const champConversionRate = (champCurrentConversions - champStartingConversions) / (champCurrentViews - champStartingViews) * 100;
-        const variantConversionRate = (variantCurrentConversions / variantCurrentViews) * 100;
+        const champConversionRate = (champCurrentConversions - champStartingConversions) / (champCurrentVisitors - champStartingVisitors) * 100;
+        const variantConversionRate = (variantCurrentConversions / variantCurrentVisitors) * 100;
 
         // Update the champ conversion rate display, formatted as a percentage to two decimal places
         document.getElementById(`champcurrentconversionRate${i}`).value = `${champConversionRate.toFixed(2)}%`;
@@ -27,7 +27,7 @@ document.getElementById('calculate').addEventListener('click', function() {
 
         // Determine and display the result
         let resultElement = document.getElementById(`v${i}Result`);
-        if (variantCurrentViews < 100) {
+        if (variantCurrentVisitors < 100) {
             resultElement.value = 'ANALYZING';
             resultElement.style.backgroundColor = 'yellow';
         } else if (variantConversionRate > champConversionRate) {
