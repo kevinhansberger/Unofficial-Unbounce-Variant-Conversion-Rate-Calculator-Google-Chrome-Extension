@@ -4,7 +4,7 @@ document.getElementById('calculate').addEventListener('click', function() {
     const champCurrentConversions = parseFloat(document.getElementById('champcurrentConversions').value);
 
     // Iterating through each variant (now for three variants)
-    for (let i = 1; i <= 3; i++) {
+    for (let i = 1; i <= 4; i++) {
         const variantCurrentVisitorsInput = document.getElementById(`v${i}currentVisitors`);
         const variantCurrentVisitors = parseFloat(variantCurrentVisitorsInput.value);
         if (!variantCurrentVisitors) { // Check if currentViews is empty or zero
