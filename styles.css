@@ -27,25 +27,24 @@ input {
   color: lightgrey;
 }
 
-.result, .currentconversionrate, .champcurrentconversionrate{
+#champname, #v1name, #v2name, #v3name, #v4name {
+  text-transform: lowercase;
+}
+
+.result, .currentconversionrate, .champcurrentconversionrate, .visitors, .conversions {
   background-color: #f1f1f1;
   border: none;
 }
 
 .pageName {
   width: 96.5%;
+  background-color: #f1f1f1;
+  border: none;
 }
 
 .calculate-btn {
     padding: 10px;
     background-color: darkgreen;
-    color: white;
-    border: none;
-}
-
-.save-btn {
-    padding: 10px;
-    background-color: darkorange;
     color: white;
     border: none;
 }
