@@ -31,7 +31,7 @@ input {
   text-transform: lowercase;
 }
 
-.vname, .result, .currentconversionrate, .champcurrentconversionrate, .visitors, .conversions {
+.vname, .result, .currentconversionrate, .champcurrentconversionrate, .visitors, .conversions, .champstartingVisitors, .champstartingConversions {
   background-color: #f1f1f1;
   border: none;
 }

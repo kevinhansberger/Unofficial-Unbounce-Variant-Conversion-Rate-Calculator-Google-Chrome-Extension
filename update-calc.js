@@ -1,10 +1,17 @@
 document.getElementById('calculate').addEventListener('click', function() {
-    // Inject a content script into the active tab to get variant IDs and update input fields
+    // Retrieve variant names from the input fields
+    const champName = document.getElementById('champname').value.toLowerCase();
+    const v1Name = document.getElementById('v1name').value.toLowerCase();
+    const v2Name = document.getElementById('v2name').value.toLowerCase();
+    const v3Name = document.getElementById('v3name').value.toLowerCase();
+    const v4Name = document.getElementById('v4name').value.toLowerCase();
+
+    // Inject a content script into the active tab to get the page name, visitors, and conversions for all variants
     chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
         chrome.scripting.executeScript(
             {
                 target: { tabId: tabs[0].id },
-                func: () => {
+                func: (champName, v1Name, v2Name, v3Name, v4Name) => {
                     const getTextContent = (selector) => {
                         const element = document.querySelector(selector);
                         return element ? element.textContent : null;
@@ -17,33 +24,43 @@ document.getElementById('calculate').addEventListener('click', function() {
                     };
 
                     const pageName = getTextContent('h2[data-testid="page-name"]');
-                    const variantIds = Array.from(document.querySelectorAll('div[data-testid*="variant-id-"]'))
-                        .map(div => div.getAttribute('data-testid').replace('variant-id-', ''))
-                        .slice(0, 5); // Take up to 5 occurrences
+
+                    const allDivs = Array.from(document.querySelectorAll('div[data-testid*="variant-id-"], div[data-testid="inactive-section"]'));
+                    const activeVariantDivs = [];
+                    for (let div of allDivs) {
+                        if (div.getAttribute('data-testid') === 'inactive-section') break;
+                        if (div.getAttribute('data-testid').includes('variant-id-')) {
+                            activeVariantDivs.push(div.getAttribute('data-testid').replace('variant-id-', ''));
+                        }
+                    }
+
+                    const champVariantId = activeVariantDivs.length > 0 ? activeVariantDivs[0] : null;
+                    const challengerVariantIds = activeVariantDivs.slice(1, 5); // Take up to 4 occurrences after the first one
 
                     const data = {
                         pageName,
-                        champData: variantIds[0] ? getVisitorConversionData(variantIds[0]) : null,
-                        v1Data: variantIds[1] ? getVisitorConversionData(variantIds[1]) : null,
-                        v2Data: variantIds[2] ? getVisitorConversionData(variantIds[2]) : null,
-                        v3Data: variantIds[3] ? getVisitorConversionData(variantIds[3]) : null,
-                        v4Data: variantIds[4] ? getVisitorConversionData(variantIds[4]) : null,
-                        variantIds
+                        champVariantId,
+                        challengerVariantIds,
+                        champData: champVariantId ? getVisitorConversionData(champVariantId) : null,
+                        v1Data: challengerVariantIds[0] ? getVisitorConversionData(challengerVariantIds[0]) : null,
+                        v2Data: challengerVariantIds[1] ? getVisitorConversionData(challengerVariantIds[1]) : null,
+                        v3Data: challengerVariantIds[2] ? getVisitorConversionData(challengerVariantIds[2]) : null,
+                        v4Data: challengerVariantIds[3] ? getVisitorConversionData(challengerVariantIds[3]) : null
                     };
 
                     return data;
                 },
+                args: [champName, v1Name, v2Name, v3Name, v4Name],
             },
             (results) => {
                 if (results && results[0].result) {
                     const data = results[0].result;
-                    const variantIds = data.variantIds;
 
-                    if (variantIds[0]) document.getElementById('champname').value = variantIds[0];
-                    if (variantIds[1]) document.getElementById('v1name').value = variantIds[1];
-                    if (variantIds[2]) document.getElementById('v2name').value = variantIds[2];
-                    if (variantIds[3]) document.getElementById('v3name').value = variantIds[3];
-                    if (variantIds[4]) document.getElementById('v4name').value = variantIds[4];
+                    if (data.champVariantId) document.getElementById('champname').value = data.champVariantId;
+                    if (data.challengerVariantIds[0]) document.getElementById('v1name').value = data.challengerVariantIds[0];
+                    if (data.challengerVariantIds[1]) document.getElementById('v2name').value = data.challengerVariantIds[1];
+                    if (data.challengerVariantIds[2]) document.getElementById('v3name').value = data.challengerVariantIds[2];
+                    if (data.challengerVariantIds[3]) document.getElementById('v4name').value = data.challengerVariantIds[3];
 
                     document.getElementById('pageName').value = data.pageName;
 
