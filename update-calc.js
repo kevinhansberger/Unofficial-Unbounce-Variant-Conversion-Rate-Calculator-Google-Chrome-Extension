@@ -6,7 +6,7 @@ document.getElementById('calculate').addEventListener('click', function() {
     const v3Name = document.getElementById('v3name').value.toLowerCase();
     const v4Name = document.getElementById('v4name').value.toLowerCase();
 
-    // Inject a content script into the active tab to get the page name, visitors, and conversions for all variants
+    // Inject a content script into the active tab to get the page name, visitors, conversions, and final data for all variants
     chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
         chrome.scripting.executeScript(
             {
@@ -21,6 +21,20 @@ document.getElementById('calculate').addEventListener('click', function() {
                         const visitors = getTextContent(`span[data-testid="visitors-${id}"]`);
                         const conversions = getTextContent(`span[data-testid="conversion-number-${id}"]`);
                         return { visitors, conversions };
+                    };
+
+                    const getFinalData = (variantName) => {
+                        const variantDiv = document.querySelector(`div[data-testid*="variant-name-${variantName}"]`);
+                        if (!variantDiv) return { finalVisitors: null, finalConversions: null };
+
+                        const title = variantDiv.getAttribute('title');
+                        const finalVisitorsMatch = title.match(/(\d+)\.sV/);
+                        const finalConversionsMatch = title.match(/(\d+)\.sC/);
+
+                        const finalVisitors = finalVisitorsMatch ? finalVisitorsMatch[1] : null;
+                        const finalConversions = finalConversionsMatch ? finalConversionsMatch[1] : null;
+
+                        return { finalVisitors, finalConversions };
                     };
 
                     const pageName = getTextContent('h2[data-testid="page-name"]');
@@ -45,7 +59,8 @@ document.getElementById('calculate').addEventListener('click', function() {
                         v1Data: challengerVariantIds[0] ? getVisitorConversionData(challengerVariantIds[0]) : null,
                         v2Data: challengerVariantIds[1] ? getVisitorConversionData(challengerVariantIds[1]) : null,
                         v3Data: challengerVariantIds[2] ? getVisitorConversionData(challengerVariantIds[2]) : null,
-                        v4Data: challengerVariantIds[3] ? getVisitorConversionData(challengerVariantIds[3]) : null
+                        v4Data: challengerVariantIds[3] ? getVisitorConversionData(challengerVariantIds[3]) : null,
+                        finalV1Data: v1Name ? getFinalData(v1Name) : null
                     };
 
                     return data;
@@ -87,6 +102,15 @@ document.getElementById('calculate').addEventListener('click', function() {
                     if (data.v4Data) {
                         document.getElementById('v4currentVisitors').value = data.v4Data.visitors;
                         document.getElementById('v4currentConversions').value = data.v4Data.conversions;
+                    }
+
+                    if (data.finalV1Data) {
+                        if (data.finalV1Data.finalVisitors) {
+                            document.getElementById('champstartingVisitors1').value = data.finalV1Data.finalVisitors;
+                        }
+                        if (data.finalV1Data.finalConversions) {
+                            document.getElementById('champstartingConversions1').value = data.finalV1Data.finalConversions;
+                        }
                     }
                 }
 
