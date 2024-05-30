@@ -4,7 +4,7 @@
   "version": "2.0",
   "description": "Calculate and compare Unbounce variant conversion rates against Champion.",
   "action": {
-    "default_popup": "popup.html",
+    "default_popup": "stats.html",
     "default_icon": "imgs/icon128.png"
   },
   "permissions": [
