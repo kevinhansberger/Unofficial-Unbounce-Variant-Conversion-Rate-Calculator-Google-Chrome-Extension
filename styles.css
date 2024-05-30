@@ -42,13 +42,6 @@ input {
   border: none;
 }
 
-.download-btn {
-    padding: 4px;
-    background-color: darkorange;
-    color: white;
-    border: none;
-}
-
 .result {
     font-weight: bold;
     padding: 8px;
@@ -63,4 +56,12 @@ input {
   text-decoration: underline;
   font-weight: bold;
   color: blue;
+}
+
+.credit {
+  font-size: 14px;
+}
+
+.credit a {
+  color: black;
 }
