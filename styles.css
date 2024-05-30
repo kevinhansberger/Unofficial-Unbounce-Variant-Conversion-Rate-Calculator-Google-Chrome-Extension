@@ -1,6 +1,7 @@
 body, html {
     width: auto;
     font-family: Arial, sans-serif;
+    font-size: 14px;
     background-color: #f1f1f1;
     color: black;
 }
@@ -16,7 +17,9 @@ input {
     padding: 8px;
     background-color: white;
     color: black;
-    border: 1px solid #ddd;
+    border: 0px solid #ddd;
+    font-size: 14px;
+    text-align: center;
 }
 
 ::-ms-input-placeholder { /* Edge 12-18 */
@@ -40,6 +43,8 @@ input {
   width: 96.5%;
   background-color: #f1f1f1;
   border: none;
+  text-align: left;
+  font-size: 16px;
 }
 
 .result {
