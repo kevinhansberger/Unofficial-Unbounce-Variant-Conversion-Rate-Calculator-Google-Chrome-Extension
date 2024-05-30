@@ -42,16 +42,9 @@ input {
   border: none;
 }
 
-.calculate-btn {
-    padding: 10px;
-    background-color: darkgreen;
-    color: white;
-    border: none;
-}
-
-.reset-btn {
-    padding: 10px;
-    background-color: darkred;
+.download-btn {
+    padding: 4px;
+    background-color: darkorange;
     color: white;
     border: none;
 }

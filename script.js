@@ -27,8 +27,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
                                 if (!variantDiv) return { finalVisitors: null, finalConversions: null };
 
                                 const title = variantDiv.getAttribute('title');
-                                const finalVisitorsMatch = title.match(/(\d+)\.sV/);
-                                const finalConversionsMatch = title.match(/(\d+)\.sC/);
+                                const finalVisitorsMatch = title.match(/(\d+)\.csV/);
+                                const finalConversionsMatch = title.match(/(\d+)\.csC/);
 
                                 const finalVisitors = finalVisitorsMatch ? finalVisitorsMatch[1] : null;
                                 const finalConversions = finalConversionsMatch ? finalConversionsMatch[1] : null;
@@ -194,6 +194,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                           document.getElementById('pageName').style.display = 'none';
                           document.getElementById('champtr').style.display = 'none';
                           document.getElementById('headerstr').style.display = 'none';
+                          document.getElementById('download').style.display = 'none';
                           document.getElementById('credit').style.display = 'none';
                           const message = document.createElement('p');
                           message.className = 'offsite';
