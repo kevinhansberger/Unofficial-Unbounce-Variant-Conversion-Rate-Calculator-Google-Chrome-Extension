@@ -60,3 +60,14 @@ input {
     font-weight: bold;
     padding: 8px;
 }
+
+.offsite {
+  width: 300px;
+  font-size: 14px;
+}
+
+.unbounce {
+  text-decoration: underline;
+  font-weight: bold;
+  color: blue;
+}

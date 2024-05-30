@@ -8,7 +8,6 @@
     "default_icon": "imgs/icon128.png"
   },
   "permissions": [
-    "storage",
     "activeTab",
     "scripting"
   ],
