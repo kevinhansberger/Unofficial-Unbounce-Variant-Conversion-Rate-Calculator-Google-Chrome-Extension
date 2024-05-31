@@ -11,6 +11,7 @@ I was doing this math in a Google Sheet, but now I can have all of this math don
 In order for the Chrome Extension to properly calculate the Champion Starting traffic for each active variant, you need to include the Champion Starting Visitors and Champion Starting Conversions in the Variant's editable title like so:
 
 Variant B - Title: Added large review widget | (1339.csV 52.csC)
+
 Variant C - Title: Added small review widget | (1221.csV 43.csC)
 
 Remove commas from numbers and make sure the Champion Starting Visitors number is followed by a ".csV" and make sure the Champion Starting Conversions number is followed by a ".csC" for the calculations to be accurate.
