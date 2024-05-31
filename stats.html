@@ -18,8 +18,8 @@
               <th>Conversions</th>
               <th>Variant Conversion Rate</th>
               <th>Champ Conversion Rate</th>
-              <th>Champ Starting Visitors</th>
-              <th>Champ Starting Conversions</th>
+              <th id="champdata1">Champ Starting Visitors</th>
+              <th id="champdata2">Champ Starting Conversions</th>
             </tr>
             <tr id="champtr">
               <td><input type="text"class="vname" id="champname" style="width: 16px;" disabled></td>
@@ -28,8 +28,8 @@
               <td><input type="number" class="conversions" id="champcurrentConversions" style="width: 80px;" disabled></td>
               <td></td>
               <td></td>
-              <td></td>
-              <td></td>
+              <td id="champdata1"></td>
+              <td id="champdata2"></td>
             </tr>
             <tr id="v1tr">
               <td><input type="text"class="vname" id="v1name" style="width: 16px;" disabled></td>
@@ -78,6 +78,7 @@
       <br>
       <div class="credit" id="credit">
         <div>Developed by <a href="https://funnel.help/?ref=unbounce-chrome-extension" target="_blank">Kevin Hansberger</a></div>
+        <div class="tooltip"><label alt="test" class="switch"><input type="checkbox"><span class="slider"></span><span class="tooltiptext">Show / Hide Champ Starting Visitors and Conversions</span></label></div>
         <!-- <div><a href="support.html" style="font-size: 16px; text-decoration: none;">❓</a></div> -->
       </div>
     </footer>

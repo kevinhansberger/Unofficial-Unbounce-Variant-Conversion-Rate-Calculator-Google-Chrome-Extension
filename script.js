@@ -200,6 +200,25 @@ document.addEventListener('DOMContentLoaded', function() {
                     message.innerHTML = 'Go to an <a href="https://app.unbounce.com/users/sign_in" target="_blank" class="unbounce">Unbounce</a> page that has at least one active variant to view your page stats.';
                     document.querySelector('.container').appendChild(message);
                 }
+
+                // Show or hide champ data based on the checkbox state
+                const checkbox = document.querySelector('.switch input');
+                const champDataElements = [
+                    'champdata1', 'champdata2', 'champstartingVisitors1', 'champstartingVisitors2',
+                    'champstartingVisitors3', 'champstartingVisitors4',
+                    'champstartingConversions1', 'champstartingConversions2',
+                    'champstartingConversions3', 'champstartingConversions4'
+                ];
+
+                const toggleChampDataVisibility = () => {
+                    const displayStyle = checkbox.checked ? '' : 'none';
+                    champDataElements.forEach(id => {
+                        document.getElementById(id).style.display = displayStyle;
+                    });
+                };
+
+                checkbox.addEventListener('change', toggleChampDataVisibility);
+                toggleChampDataVisibility(); // Initial toggle based on the current checkbox state
             }
         );
     });
