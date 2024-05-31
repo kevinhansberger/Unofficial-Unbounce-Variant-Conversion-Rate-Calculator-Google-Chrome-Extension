@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "Unbounce Variant Conversion Rate Calculator",
-  "version": "2.0",
-  "description": "Calculate and compare Unbounce variant conversion rates against Champion.",
+  "version": "2.1",
+  "description": "Automatically calculate and compare Unbounce variant conversion rates against Champion using only the traffic received during the launch of the variant.",
   "action": {
     "default_popup": "stats.html",
     "default_icon": "imgs/icon128.png"
