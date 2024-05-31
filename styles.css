@@ -1,7 +1,6 @@
 body, html {
     width: auto;
     font-family: Arial, sans-serif;
-    font-size: 14px;
     background-color: #f1f1f1;
     color: black;
 }
@@ -10,65 +9,28 @@ input, label {
     display: block;
     width: 100%;
     margin: 5px 0;
-    border: none;
 }
 
 input {
     padding: 8px;
     background-color: white;
     color: black;
-    border: 0px solid #ddd;
-    font-size: 14px;
-    text-align: center;
+    border: 1px solid #ccc;
 }
 
-::-ms-input-placeholder { /* Edge 12-18 */
-  color: lightgrey;
+.calculate-btn {
+    padding: 10px;
+    background-color: darkgreen;
+    color: white;
 }
 
-::placeholder {
-  color: lightgrey;
-}
-
-#champname, #v1name, #v2name, #v3name, #v4name {
-  text-transform: lowercase;
-}
-
-.vname, .result, .currentconversionrate, .champcurrentconversionrate, .visitors, .conversions, .champstartingVisitors, .champstartingConversions {
-  background-color: #f1f1f1;
-  border: none;
-}
-
-.pageName {
-  width: 96.5%;
-  background-color: #f1f1f1;
-  border: none;
-  text-align: left;
-  font-size: 16px;
+.reset-btn {
+    padding: 10px;
+    background-color: darkred;
+    color: white;
 }
 
 .result {
     font-weight: bold;
     padding: 8px;
-}
-
-.offsite {
-  width: 300px;
-  font-size: 14px;
-}
-
-.unbounce {
-  text-decoration: underline;
-  font-weight: bold;
-  color: blue;
-}
-
-.credit {
-  display: flex;
-  justify-content: space-between;
-  font-size: 14px;
-}
-
-.credit a {
-  color: black;
 }
