@@ -22,15 +22,7 @@ input {
     text-align: center;
 }
 
-::-ms-input-placeholder { /* Edge 12-18 */
-  color: lightgrey;
-}
-
-::placeholder {
-  color: lightgrey;
-}
-
-#champname, #v1name, #v2name, #v3name, #v4name {
+#champname, #v1name, #v2name, #v3name, #v4name, #v5name, #v6name, #v7name, #v8name, #v9name, #v10name {
   text-transform: lowercase;
 }
 
@@ -63,14 +55,14 @@ input {
   color: blue;
 }
 
-.credit {
+.footer {
   display: flex;
   width: 96.5%;
   justify-content: space-between;
   font-size: 14px;
 }
 
-.credit a {
+.footer a {
   color: black;
 }
 
