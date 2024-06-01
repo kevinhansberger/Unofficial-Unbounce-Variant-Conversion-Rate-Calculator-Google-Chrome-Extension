@@ -9,8 +9,7 @@
   },
   "permissions": [
     "activeTab",
-    "scripting",
-    "tabs"
+    "scripting"
   ],
   "icons": {
     "16": "imgs/icon16.png",
