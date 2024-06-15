@@ -239,6 +239,40 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 }
 
+                // Proceed with calculations after updating the input fields
+                const champCurrentVisitors = parseFloat(document.getElementById('champcurrentVisitors').value);
+                const champCurrentConversions = parseFloat(document.getElementById('champcurrentConversions').value);
+
+                for (let i = 1; i <= 10; i++) {
+                    const variantCurrentVisitorsInput = document.getElementById(`v${i}currentVisitors`);
+                    const variantCurrentVisitors = parseFloat(variantCurrentVisitorsInput.value);
+                    if (!variantCurrentVisitors) {
+                        document.getElementById(`v${i}Result`).value = '';
+                        continue;
+                    }
+                    const variantCurrentConversions = parseFloat(document.getElementById(`v${i}currentConversions`).value);
+                    const champStartingVisitors = parseFloat(document.getElementById(`champstartingVisitors${i}`).value);
+                    const champStartingConversions = parseFloat(document.getElementById(`champstartingConversions${i}`).value);
+
+                    const champConversionRate = (champCurrentConversions - champStartingConversions) / (champCurrentVisitors - champStartingVisitors) * 100;
+                    const variantConversionRate = (variantCurrentConversions / variantCurrentVisitors) * 100;
+
+                    document.getElementById(`champcurrentconversionRate${i}`).value = `${champConversionRate.toFixed(2)}%`;
+                    document.getElementById(`v${i}currentconversionRate`).value = `${variantConversionRate.toFixed(2)}%`;
+
+                    let resultElement = document.getElementById(`v${i}Result`);
+                    if (variantCurrentVisitors < 30) {
+                        resultElement.value = 'ANALYZING';
+                        resultElement.style.backgroundColor = 'yellow';
+                    } else if (variantConversionRate > champConversionRate) {
+                        resultElement.value = 'WINNING';
+                        resultElement.style.backgroundColor = 'lightgreen';
+                    } else {
+                        resultElement.value = 'LOSING';
+                        resultElement.style.backgroundColor = 'lightcoral';
+                    }
+                }
+
                 // Hide rows if variant names are empty
                 const variantNames = ['v1name', 'v2name', 'v3name', 'v4name', 'v5name', 'v6name', 'v7name', 'v8name', 'v9name', 'v10name'];
                 const variantRows = ['v1tr', 'v2tr', 'v3tr', 'v4tr', 'v5tr', 'v6tr', 'v7tr', 'v8tr', 'v9tr', 'v10tr'];
@@ -264,39 +298,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     document.querySelector('.container').appendChild(message);
                 }
 
-                // Proceed with calculations after updating the input fields
-                const champCurrentVisitors = parseFloat(document.getElementById('champcurrentVisitors').value);
-                const champCurrentConversions = parseFloat(document.getElementById('champcurrentConversions').value);
-
-                for (let i = 1; i <= 10; i++) {
-                    const variantCurrentVisitorsInput = document.getElementById(`v${i}currentVisitors`);
-                    const variantCurrentVisitors = parseFloat(variantCurrentVisitorsInput.value);
-                    if (!variantCurrentVisitors) {
-                        document.getElementById(`v${i}Result`).value = '';
-                        continue;
-                    }
-                    const variantCurrentConversions = parseFloat(document.getElementById(`v${i}currentConversions`).value);
-                    const champStartingVisitors = parseFloat(document.getElementById(`champstartingVisitors${i}`).value);
-                    const champStartingConversions = parseFloat(document.getElementById(`champstartingConversions${i}`).value);
-
-                    const champConversionRate = (champCurrentConversions - champStartingConversions) / (champCurrentVisitors - champStartingVisitors) * 100;
-                    const variantConversionRate = (variantCurrentConversions / variantCurrentVisitors) * 100;
-
-                    document.getElementById(`champcurrentconversionRate${i}`).value = `${champConversionRate.toFixed(2)}%`;
-                    document.getElementById(`v${i}currentconversionRate`).value = `${variantConversionRate.toFixed(2)}%`;
-
-                    let resultElement = document.getElementById(`v${i}Result`);
-                    if (variantCurrentVisitors < 50) {
-                        resultElement.value = 'ANALYZING';
-                        resultElement.style.backgroundColor = 'yellow';
-                    } else if (variantConversionRate > champConversionRate) {
-                        resultElement.value = 'WINNING';
-                        resultElement.style.backgroundColor = 'lightgreen';
-                    } else {
-                        resultElement.value = 'LOSING';
-                        resultElement.style.backgroundColor = 'lightcoral';
-                    }
-                }
             }
         );
     });
