@@ -142,3 +142,15 @@ input:checked + .slider:before {
 .tooltip:hover .tooltiptext {
   visibility: visible;
 }
+
+.popup {
+  width: 560px;
+}
+
+.popup h1 {
+  font-size: 20px;
+}
+
+.popup h2 {
+  font-size: 16px;
+}

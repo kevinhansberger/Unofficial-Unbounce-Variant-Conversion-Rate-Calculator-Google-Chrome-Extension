@@ -286,18 +286,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         allVariantsEmpty = false;
                     }
                 });
-
-                if (allVariantsEmpty) {
-                    document.getElementById('pageName').style.display = 'none';
-                    document.getElementById('champtr').style.display = 'none';
-                    document.getElementById('headerstr').style.display = 'none';
-                    document.getElementById('footer').style.display = 'none';
-                    const message = document.createElement('p');
-                    message.className = 'offsite';
-                    message.innerHTML = 'Go to an <a href="https://app.unbounce.com/users/sign_in" target="_blank" class="unbounce">Unbounce</a> page that has at least one active variant to view your page stats.';
-                    document.querySelector('.container').appendChild(message);
-                }
-
             }
         );
     });
