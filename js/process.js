@@ -279,12 +279,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 let allVariantsEmpty = true;
                 variantNames.forEach((variantName, index) => {
-                    const variantValue = document.getElementById(variantName).value;
-                    if (!variantValue) {
-                        document.getElementById(variantRows[index]).style.display = 'none';
-                    } else {
-                        allVariantsEmpty = false;
-                    }
+                  const variantValue = document.getElementById(variantName).value;
+                  if (variantValue) {
+                    document.getElementById(variantRows[index]).style.display = '';
+                    allVariantsEmpty = false;
+                  } else {
+                    document.getElementById(variantRows[index]).style.display = 'none';
+                  }
                 });
             }
         );
