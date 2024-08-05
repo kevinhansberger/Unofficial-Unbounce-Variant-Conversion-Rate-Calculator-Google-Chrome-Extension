@@ -1,15 +1,16 @@
 {
   "manifest_version": 3,
   "name": "Unbounce Variant True Conversion Rate Calculator",
-  "version": "2.03",
-  "description": "Automatically calculate Unbounce variant conversion rate against Champion using most recent traffic.",
+  "version": "2.04",
+  "description": "Automatically calculate Unbounce variant conversion rate against Champion using proper traffic.",
   "action": {
     "default_popup": "stats.html",
     "default_icon": "imgs/icon128.png"
   },
   "permissions": [
     "activeTab",
-    "scripting"
+    "scripting",
+    "storage"
   ],
   "icons": {
     "16": "imgs/icon16.png",

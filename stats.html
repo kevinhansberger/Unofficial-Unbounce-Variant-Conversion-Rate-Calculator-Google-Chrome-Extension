@@ -146,11 +146,11 @@
       <h2>Results</h2>
       <p>Once each Active Variant has been calculated, the Result will populate with "Analyzing", "Winning", or "Losing."
         <ul>
-          <li>If an Active Variant has not reached 30 Views, the Result will display "Analyzing" which means you need a few more views before we recommend making a decision on the success of that Active Variant.
-          <li>If an Active Variant has reached 30 Views and the Variant Conversion Rate is greater than the Champ Conversion Rate, the Result will display "Winning" which means your split test is currently successful.
-          <li>If an Active Variant has reached 30 Views and the Variant Conversion Rate is less than the Champ Conversion Rate, the Result will display "Losing" which means your split test is currently not successful.</p>
+          <li>If an Active Variant has not reached 30 Visitors, the Result will display "Analyzing" which means you need a few more views before we recommend making a decision on the success of that Active Variant.
+          <li>If an Active Variant has reached 30 Visitors and the Variant Conversion Rate is greater than the Champ Conversion Rate, the Result will display "Winning" which means your split test is currently successful.
+          <li>If an Active Variant has reached 30 Visitors and the Variant Conversion Rate is less than the Champ Conversion Rate, the Result will display "Losing" which means your split test is currently not successful.</p>
         </ul>
-        <p>Why the 30 Views benchmark? This benchmark comes from the MintCRO Methodology in regards to working with small data so we can gain faster "wins" in our quest for faster and more profitable conversion rate optimization in our marketing.</p>
+        <p>Why the 30 Visitors benchmark? This benchmark comes from the MintCRO Methodology in regards to working with small data so we can gain faster "wins" in our quest for faster and more profitable conversion rate optimization in our marketing. If you would like to change the 30 Visitors benchmark, you may do so in settings. </p>
       <h2>Champion Starting Data</h2>
       <p>If you have a champion variant that has been running for a while that has received quite a bit of traffic and you are still testing more variants trying to find a new champion, then the stats for your champion variant aren't truly accurate when you compare it against your new variants because your champion variant stats are including traffic that was sent to it during the time many other previous variants were active, so it isn't fair to compare it against the current variant because the current variant has much less traffic to analyze and compare thus making the conversion rate uncomparable.</p>
       <p>This is the main reason this extension was created, because the Champion stats shown in Unbounce aren't exactly the stats needed to make a more informed decision concerning which variant is perfoming better, the Champion or the new test variant. In order to allow the extension to calculate the Champion variant stats from only after the new test variant was launched, you need to include the Champion Starting Visitors and Champion Starting Conversions of when the new test variant is launched in the actualy title of the new test variant.</p>
@@ -161,10 +161,15 @@
     <div class="popup" id="settingsArea" style="display: none;">
       <span><img id="closeSettingsIcon" src="/imgs/close.png" style="height: 16px;" /></span>
       <h1>Settings</h1>
-      <p>This is the settings area</p>
+      <table>
+        <tr>
+          <td>Number of Visitors:</td>
+          <td><input type="number" class="numberVisitors" style="width: 60px; height: 10px;" value="30" id="numberVisitors"></td>
+        </tr>
+      </table>
     </div>
     <div class="footer" id="footer">
-        <div><img id="infoIcon" src="/imgs/info.png" style="height: 16px; padding-left: 10px; padding-right: 20px;" /><!--<img id="settingsIcon" src="/imgs/settings.png" alt="Settings" style="height: 16px; padding-right: 20px;" /><img src="/imgs/monitor.png" alt="Monitor" style="height: 16px; padding-right: 20px;" />--></div>
+        <div><img id="infoIcon" src="/imgs/info.png" style="height: 16px; padding-left: 10px; padding-right: 16px;" /><img id="settingsIcon" src="/imgs/settings.png" alt="Settings" style="height: 16px; padding-right: 16px;" /><!--<img src="/imgs/monitor.png" alt="Monitor" style="height: 16px; padding-right: 20px;" />--></div>
         <div class="tooltip"><label class="switch"><input type="checkbox"><span class="slider"></span><span class="tooltiptext">Show / Hide Champ Starting Visitors and Conversions</span></label></div>
       </div>
     <script src="/js/process.js"></script>

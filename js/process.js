@@ -243,6 +243,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 const champCurrentVisitors = parseFloat(document.getElementById('champcurrentVisitors').value);
                 const champCurrentConversions = parseFloat(document.getElementById('champcurrentConversions').value);
 
+                // Get the number of visitors threshold from localStorage
+                const numberVisitors = localStorage.getItem('numberVisitors') || 30;
+
                 for (let i = 1; i <= 10; i++) {
                     const variantCurrentVisitorsInput = document.getElementById(`v${i}currentVisitors`);
                     const variantCurrentVisitors = parseFloat(variantCurrentVisitorsInput.value);
@@ -261,7 +264,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     document.getElementById(`v${i}currentconversionRate`).value = `${variantConversionRate.toFixed(2)}%`;
 
                     let resultElement = document.getElementById(`v${i}Result`);
-                    if (variantCurrentVisitors < 30) {
+                    if (variantCurrentVisitors < numberVisitors) {
                         resultElement.value = 'ANALYZING';
                         resultElement.style.backgroundColor = 'yellow';
                     } else if (variantConversionRate > champConversionRate) {
