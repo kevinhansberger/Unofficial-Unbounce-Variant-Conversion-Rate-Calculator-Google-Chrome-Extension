@@ -10,8 +10,12 @@
   "permissions": [
     "activeTab",
     "scripting",
-    "storage"
+    "storage",
+    "notifications"
   ],
+  "background": {
+    "service_worker": "js/background.js"
+  },
   "icons": {
     "16": "imgs/icon16.png",
     "48": "imgs/icon48.png",
