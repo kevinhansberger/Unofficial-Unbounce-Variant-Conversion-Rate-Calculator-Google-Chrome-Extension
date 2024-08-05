@@ -6,11 +6,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const pageName = document.getElementById('pageName');
     const footer = document.getElementById('footer');
     const settingsArea = document.getElementById('settingsArea');
-    const numberConversions = document.getElementById('numberConversions');
+    const numberVisitors = document.getElementById('numberVisitors');
 
     // Load saved value or set default to 30
-    const savedNumberConversions = localStorage.getItem('numberConversions');
-    numberConversions.value = savedNumberConversions !== null ? savedNumberConversions : 30;
+    const savedNumberVisitors = localStorage.getItem('numberVisitors');
+    numberVisitors.value = savedNumberVisitors !== null ? savedNumberVisitors : 30;
 
     settingsIcon.addEventListener('click', function() {
         rateForm.style.display = 'none';
@@ -23,8 +23,8 @@ document.addEventListener('DOMContentLoaded', function() {
         window.location.reload();
     });
 
-    numberConversions.addEventListener('change', function() {
-        localStorage.setItem('numberConversions', numberConversions.value);
+    numberVisitors.addEventListener('change', function() {
+        localStorage.setItem('numberVisitors', numberVisitors.value);
     });
 
 });
