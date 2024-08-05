@@ -6,10 +6,11 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
+<script src="/js/nrc.js"></script>
+<script src="/js/val.js"></script>
+    <div>
         <form id="rateForm">
           <input type="text" class="pageName" id="pageName" disabled>
-          <br>
           <table>
             <tr id="headerstr">
               <th>Variant</th>
@@ -22,7 +23,7 @@
               <th id="champdata2">Champ Starting Conversions</th>
             </tr>
             <tr id="champtr">
-              <td><input type="text"class="vname" id="champname" style="width: 16px;" disabled></td>
+              <td><input type="text" class="vname" id="champname" style="width: 16px;" disabled></td>
               <td></td>
               <td><input type="number" class="visitors" id="champcurrentVisitors" style="width: 80px;" disabled></td>
               <td><input type="number" class="conversions" id="champcurrentConversions" style="width: 80px;" disabled></td>
@@ -31,8 +32,8 @@
               <td id="champdata1"></td>
               <td id="champdata2"></td>
             </tr>
-            <tr id="v1tr">
-              <td><input type="text"class="vname" id="v1name" style="width: 16px;" disabled></td>
+            <tr id="v1tr" style="display: none;">
+              <td><input type="text" class="vname" id="v1name" style="width: 16px;" disabled></td>
               <td><input type="text" class="result" id="v1Result" style="width: 80px;" disabled></td>
               <td><input type="number" class="visitors" id="v1currentVisitors" style="width: 80px;" disabled ></td>
               <td><input type="number" class="conversions" id="v1currentConversions" style="width: 80px;" disabled ></td>
@@ -41,8 +42,8 @@
               <td><input type="number" class="champstartingVisitors" id="champstartingVisitors1" style="width: 80px;" disabled ></td>
               <td><input type="number" class="champstartingConversions" id="champstartingConversions1" style="width: 80px;" disabled ></td>
             </tr>
-            <tr id="v2tr">
-              <td><input type="text"class="vname" id="v2name" style="width: 16px;" disabled></td>
+            <tr id="v2tr" style="display: none;">
+              <td><input type="text" class="vname" id="v2name" style="width: 16px;" disabled></td>
               <td><input type="text" class="result" id="v2Result" style="width: 80px;" disabled></td>
               <td><input type="number" class="visitors" id="v2currentVisitors" style="width: 80px;" disabled ></td>
               <td><input type="number" class="conversions" id="v2currentConversions" style="width: 80px;" disabled ></td>
@@ -51,8 +52,8 @@
               <td><input type="number" class="champstartingVisitors" id="champstartingVisitors2" style="width: 80px;" disabled ></td>
               <td><input type="number" class="champstartingConversions" id="champstartingConversions2" style="width: 80px;" disabled ></td>
             </tr>
-            <tr id="v3tr">
-              <td><input type="text"class="vname" id="v3name" style="width: 16px;" disabled></td>
+            <tr id="v3tr" style="display: none;">
+              <td><input type="text" class="vname" id="v3name" style="width: 16px;" disabled></td>
               <td><input type="text" class="result" id="v3Result" style="width: 80px;" disabled></td>
               <td><input type="number" class="visitors" id="v3currentVisitors" style="width: 80px;" disabled ></td>
               <td><input type="number" class="conversions" id="v3currentConversions" style="width: 80px;" disabled ></td>
@@ -61,8 +62,8 @@
               <td><input type="number" class="champstartingVisitors" id="champstartingVisitors3" style="width: 80px;" disabled ></td>
               <td><input type="number" class="champstartingConversions" id="champstartingConversions3" style="width: 80px;" disabled ></td>
             </tr>
-            <tr id="v4tr">
-              <td><input type="text"class="vname" id="v4name" style="width: 16px;" disabled></td>
+            <tr id="v4tr" style="display: none;">
+              <td><input type="text" class="vname" id="v4name" style="width: 16px;" disabled></td>
               <td><input type="text" class="result" id="v4Result" style="width: 80px;" disabled></td>
               <td><input type="number" class="visitors" id="v4currentVisitors" style="width: 80px;" disabled ></td>
               <td><input type="number" class="conversions" id="v4currentConversions" style="width: 80px;" disabled ></td>
@@ -71,8 +72,8 @@
               <td><input type="number" class="champstartingVisitors" id="champstartingVisitors4" style="width: 80px;" disabled ></td>
               <td><input type="number" class="champstartingConversions" id="champstartingConversions4" style="width: 80px;" disabled ></td>
             </tr>
-            <tr id="v5tr">
-              <td><input type="text"class="vname" id="v5name" style="width: 16px;" disabled></td>
+            <tr id="v5tr" style="display: none;">
+              <td><input type="text" class="vname" id="v5name" style="width: 16px;" disabled></td>
               <td><input type="text" class="result" id="v5Result" style="width: 80px;" disabled></td>
               <td><input type="number" class="visitors" id="v5currentVisitors" style="width: 80px;" disabled ></td>
               <td><input type="number" class="conversions" id="v5currentConversions" style="width: 80px;" disabled ></td>
@@ -81,8 +82,8 @@
               <td><input type="number" class="champstartingVisitors" id="champstartingVisitors5" style="width: 80px;" disabled ></td>
               <td><input type="number" class="champstartingConversions" id="champstartingConversions5" style="width: 80px;" disabled ></td>
             </tr>
-            <tr id="v6tr">
-              <td><input type="text"class="vname" id="v6name" style="width: 16px;" disabled></td>
+            <tr id="v6tr" style="display: none;">
+              <td><input type="text" class="vname" id="v6name" style="width: 16px;" disabled></td>
               <td><input type="text" class="result" id="v6Result" style="width: 80px;" disabled></td>
               <td><input type="number" class="visitors" id="v6currentVisitors" style="width: 80px;" disabled ></td>
               <td><input type="number" class="conversions" id="v6currentConversions" style="width: 80px;" disabled ></td>
@@ -91,8 +92,8 @@
               <td><input type="number" class="champstartingVisitors" id="champstartingVisitors6" style="width: 80px;" disabled ></td>
               <td><input type="number" class="champstartingConversions" id="champstartingConversions6" style="width: 80px;" disabled ></td>
             </tr>
-            <tr id="v7tr">
-              <td><input type="text"class="vname" id="v7name" style="width: 16px;" disabled></td>
+            <tr id="v7tr" style="display: none;">
+              <td><input type="text" class="vname" id="v7name" style="width: 16px;" disabled></td>
               <td><input type="text" class="result" id="v7Result" style="width: 80px;" disabled></td>
               <td><input type="number" class="visitors" id="v7currentVisitors" style="width: 80px;" disabled ></td>
               <td><input type="number" class="conversions" id="v7currentConversions" style="width: 80px;" disabled ></td>
@@ -101,8 +102,8 @@
               <td><input type="number" class="champstartingVisitors" id="champstartingVisitors7" style="width: 80px;" disabled ></td>
               <td><input type="number" class="champstartingConversions" id="champstartingConversions7" style="width: 80px;" disabled ></td>
             </tr>
-            <tr id="v8tr">
-              <td><input type="text"class="vname" id="v8name" style="width: 16px;" disabled></td>
+            <tr id="v8tr" style="display: none;">
+              <td><input type="text" class="vname" id="v8name" style="width: 16px;" disabled></td>
               <td><input type="text" class="result" id="v8Result" style="width: 80px;" disabled></td>
               <td><input type="number" class="visitors" id="v8currentVisitors" style="width: 80px;" disabled ></td>
               <td><input type="number" class="conversions" id="v8currentConversions" style="width: 80px;" disabled ></td>
@@ -111,8 +112,8 @@
               <td><input type="number" class="champstartingVisitors" id="champstartingVisitors8" style="width: 80px;" disabled ></td>
               <td><input type="number" class="champstartingConversions" id="champstartingConversions8" style="width: 80px;" disabled ></td>
             </tr>
-            <tr id="v9tr">
-              <td><input type="text"class="vname" id="v9name" style="width: 16px;" disabled></td>
+            <tr id="v9tr" style="display: none;">
+              <td><input type="text" class="vname" id="v9name" style="width: 16px;" disabled></td>
               <td><input type="text" class="result" id="v9Result" style="width: 80px;" disabled></td>
               <td><input type="number" class="visitors" id="v9currentVisitors" style="width: 80px;" disabled ></td>
               <td><input type="number" class="conversions" id="v9currentConversions" style="width: 80px;" disabled ></td>
@@ -121,8 +122,8 @@
               <td><input type="number" class="champstartingVisitors" id="champstartingVisitors9" style="width: 80px;" disabled ></td>
               <td><input type="number" class="champstartingConversions" id="champstartingConversions9" style="width: 80px;" disabled ></td>
             </tr>
-            <tr id="v10tr">
-              <td><input type="text"class="vname" id="v10name" style="width: 16px;" disabled></td>
+            <tr id="v10tr" style="display: none;">
+              <td><input type="text" class="vname" id="v10name" style="width: 16px;" disabled></td>
               <td><input type="text" class="result" id="v10Result" style="width: 80px;" disabled></td>
               <td><input type="number" class="visitors" id="v10currentVisitors" style="width: 80px;" disabled ></td>
               <td><input type="number" class="conversions" id="v10currentConversions" style="width: 80px;" disabled ></td>
@@ -134,14 +135,41 @@
           </table>
         </form>
     </div>
-    <footer>
-      <br>
-      <div class="footer" id="footer">
-        <div>Developed by <a href="https://funnel.help/?ref=unbounce-chrome-extension" target="_blank">Kevin Hansberger</a></div>
-        <div class="tooltip"><label alt="test" class="switch"><input type="checkbox"><span class="slider"></span><span class="tooltiptext">Show / Hide Champ Starting Visitors and Conversions</span></label></div>
-        <!-- <div><a href="support.html" style="font-size: 16px; text-decoration: none;">❓</a></div> -->
+    <div class="popup" id="valArea" style="display: none;">
+      <p>Navigate to the Overview section of an Unbounce page.</p>
+    </div>
+    <div class="popup" id="infoArea" style="display: none;">
+      <span><img id="closeInfoIcon" src="/imgs/close.png" style="height: 16px;" /></span>
+      <h1>Info</h1>
+      <h2>Overview</h2>
+      <p>Once the extension is opened by clicking on the icon, it locates each Active Variant (up to 10) on the Unbounce page and then pulls in each Active Variant's Visitors and Views data as well as the data for the Champ Starting Visitors and Champ Starting Conversions if you have that data listed accurately in each Active Variant's Title, and then it calculates everything instantly for you without any input or action from the user so you can see the true stats, winners, and losers without needing a calculator or spreadsheet. This saves a lot of time if you do a lot of testing, and enables you to do more testing now that calculations are automatically done for you.</p>
+      <h2>Results</h2>
+      <p>Once each Active Variant has been calculated, the Result will populate with "Analyzing", "Winning", or "Losing."
+        <ul>
+          <li>If an Active Variant has not reached 30 Views, the Result will display "Analyzing" which means you need a few more views before we recommend making a decision on the success of that Active Variant.
+          <li>If an Active Variant has reached 30 Views and the Variant Conversion Rate is greater than the Champ Conversion Rate, the Result will display "Winning" which means your split test is currently successful.
+          <li>If an Active Variant has reached 30 Views and the Variant Conversion Rate is less than the Champ Conversion Rate, the Result will display "Losing" which means your split test is currently not successful.</p>
+        </ul>
+        <p>Why the 30 Views benchmark? This benchmark comes from the MintCRO Methodology in regards to working with small data so we can gain faster "wins" in our quest for faster and more profitable conversion rate optimization in our marketing.</p>
+      <h2>Champion Starting Data</h2>
+      <p>If you have a champion variant that has been running for a while that has received quite a bit of traffic and you are still testing more variants trying to find a new champion, then the stats for your champion variant aren't truly accurate when you compare it against your new variants because your champion variant stats are including traffic that was sent to it during the time many other previous variants were active, so it isn't fair to compare it against the current variant because the current variant has much less traffic to analyze and compare thus making the conversion rate uncomparable.</p>
+      <p>This is the main reason this extension was created, because the Champion stats shown in Unbounce aren't exactly the stats needed to make a more informed decision concerning which variant is perfoming better, the Champion or the new test variant. In order to allow the extension to calculate the Champion variant stats from only after the new test variant was launched, you need to include the Champion Starting Visitors and Champion Starting Conversions of when the new test variant is launched in the actualy title of the new test variant.</p>
+      <p>For example:<br><br>Variant B - Title Goes Here: Added large review widget | (1339.csV 52.csC)<br>Variant C - Title Goes Here: Added small review widget | (1221.csV 43.csC)<br><br>Doesn't have to be in parentheses, but I like to do that. Remove commas from numbers and make sure the Champion Starting Visitors number is followed by a ".csV" and make sure the Champion Starting Conversions number is followed by a ".csC" for the calculations to be accurate.</p>
+      <h2>Credits</h2>
+      <p>Developed by Kevin Hansberger from Sage Media and Funnel.Help, and given freely to all with gratitude to the <a style="color: green; text-decoration: underline;" title="Grow Faster with an Engineering Approach to Marketing" href="https://get.mintcro.com/?ref=Kevin%20Hansberger%20Chrome%20Extension">MintCRO Methodology.</a></p>
+    </div>
+    <div class="popup" id="settingsArea" style="display: none;">
+      <span><img id="closeSettingsIcon" src="/imgs/close.png" style="height: 16px;" /></span>
+      <h1>Settings</h1>
+      <p>This is the settings area</p>
+    </div>
+    <div class="footer" id="footer">
+        <div><img id="infoIcon" src="/imgs/info.png" style="height: 16px; padding-left: 10px; padding-right: 20px;" /><!--<img id="settingsIcon" src="/imgs/settings.png" alt="Settings" style="height: 16px; padding-right: 20px;" /><img src="/imgs/monitor.png" alt="Monitor" style="height: 16px; padding-right: 20px;" />--></div>
+        <div class="tooltip"><label class="switch"><input type="checkbox"><span class="slider"></span><span class="tooltiptext">Show / Hide Champ Starting Visitors and Conversions</span></label></div>
       </div>
-    </footer>
-    <script src="script.js"></script>
+    <script src="/js/process.js"></script>
+    <script src="/js/info.js"></script>
+    <script src="/js/settings.js"></script>
+    <script src="/js/csvc.js"></script>
 </body>
 </html>

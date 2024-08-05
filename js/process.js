@@ -1,9 +1,3 @@
-document.addEventListener('DOMContentLoaded', (event) => {
-    document.addEventListener('contextmenu', (e) => {
-        e.preventDefault();
-    });
-});
-
 document.addEventListener('DOMContentLoaded', function() {
     // Inject a content script into the active tab to get the page name, visitors, conversions, and final data for all variants
     chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
@@ -267,7 +261,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     document.getElementById(`v${i}currentconversionRate`).value = `${variantConversionRate.toFixed(2)}%`;
 
                     let resultElement = document.getElementById(`v${i}Result`);
-                    if (variantCurrentVisitors < 100) {
+                    if (variantCurrentVisitors < 30) {
                         resultElement.value = 'ANALYZING';
                         resultElement.style.backgroundColor = 'yellow';
                     } else if (variantConversionRate > champConversionRate) {
@@ -285,41 +279,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 let allVariantsEmpty = true;
                 variantNames.forEach((variantName, index) => {
-                    const variantValue = document.getElementById(variantName).value;
-                    if (!variantValue) {
-                        document.getElementById(variantRows[index]).style.display = 'none';
-                    } else {
-                        allVariantsEmpty = false;
-                    }
+                  const variantValue = document.getElementById(variantName).value;
+                  if (variantValue) {
+                    document.getElementById(variantRows[index]).style.display = '';
+                    allVariantsEmpty = false;
+                  } else {
+                    document.getElementById(variantRows[index]).style.display = 'none';
+                  }
                 });
-
-                if (allVariantsEmpty) {
-                    document.getElementById('pageName').style.display = 'none';
-                    document.getElementById('champtr').style.display = 'none';
-                    document.getElementById('headerstr').style.display = 'none';
-                    document.getElementById('footer').style.display = 'none';
-                    const message = document.createElement('p');
-                    message.className = 'offsite';
-                    message.innerHTML = 'Go to an <a href="https://app.unbounce.com/users/sign_in" target="_blank" class="unbounce">Unbounce</a> page that has at least one active variant to view your page stats.';
-                    document.querySelector('.container').appendChild(message);
-                }
-
-                // Show or hide champ data based on the checkbox state
-                const checkbox = document.querySelector('.switch input');
-                const champDataElements = [
-                    'champdata1', 'champdata2', 'champstartingVisitors1', 'champstartingVisitors2', 'champstartingVisitors3', 'champstartingVisitors4', 'champstartingVisitors5', 'champstartingVisitors6', 'champstartingVisitors7', 'champstartingVisitors8', 'champstartingVisitors9', 'champstartingVisitors10',
-                    'champstartingConversions1', 'champstartingConversions2', 'champstartingConversions3', 'champstartingConversions4', 'champstartingConversions5', 'champstartingConversions6', 'champstartingConversions7', 'champstartingConversions8', 'champstartingConversions9', 'champstartingConversions10'
-                ];
-
-                const toggleChampDataVisibility = () => {
-                    const displayStyle = checkbox.checked ? '' : 'none';
-                    champDataElements.forEach(id => {
-                        document.getElementById(id).style.display = displayStyle;
-                    });
-                };
-
-                checkbox.addEventListener('change', toggleChampDataVisibility);
-                toggleChampDataVisibility(); // Initial toggle based on the current checkbox state
             }
         );
     });
