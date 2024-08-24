@@ -141,6 +141,9 @@
     <div class="popup" id="valArea" style="display: none;">
       <p>Navigate to the Overview section of an Unbounce page.</p>
     </div>
+    <div class="popup" id="bookmarksArea" style="display: none;">
+      <p></p>
+    </div>
     <div class="popup" id="infoArea" style="display: none;">
       <span><img id="closeInfoIcon" src="/imgs/close.png" style="height: 16px;" /></span>
       <h1>Info</h1>
@@ -172,10 +175,12 @@
       </table>
     </div>
     <div class="footer" id="footer">
-        <div><img id="infoIcon" src="/imgs/info.png" style="height: 16px; padding-left: 10px; padding-right: 16px;" /><img id="settingsIcon" src="/imgs/settings.png" alt="Settings" style="height: 16px; padding-right: 16px;" /><!--<img src="/imgs/bookmark-unchecked.png" alt="Bookmark" style="height: 16px; padding-right: 20px;" />--></div>
-        <div class="tooltip"><label class="switch"><input type="checkbox"><span class="slider"></span><span class="tooltiptext">Show / Hide Champ Starting Visitors and Conversions</span></label></div>
+        <div><img id="infoIcon" title="Info" src="/imgs/info.png" style="height: 16px; padding-left: 10px; padding-right: 16px;" /><img id="settingsIcon" title="Settings" src="/imgs/settings.png" alt="Settings" style="height: 16px; padding-right: 16px;" /><img id="bookmarkIcon" title="Bookmark/Unbookmark This Page" src="/imgs/bookmark-unchecked.png" alt="Bookmark" style="height: 16px; padding-right: 16px;" /><img id="bookmarksIcon" src="/imgs/bookmarks.png" alt="Bookmarks" title="List of Bookmarks" style="height: 16px; padding-right: 16px;" /></div>
+        <div title="Show / Hide Champ Starting Visitors and Conversions"><label class="switch"><input title="Settings" type="checkbox"><span class="slider"></span></label></div>
       </div>
     <script src="/js/process.js"></script>
+    <script src="/js/bookmark.js"></script>
+    <script src="/js/bookmarks.js"></script>
     <script src="/js/info.js"></script>
     <script src="/js/settings.js"></script>
     <script src="/js/csvc.js"></script>
