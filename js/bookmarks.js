@@ -1,19 +1,19 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-    const infoIcon = document.getElementById('infoIcon');
+    const bookmarksIcon = document.getElementById('bookmarksIcon');
     const closeIcon = document.getElementById('closeIcon');
     const rateForm = document.getElementById('rateForm');
     const pageName = document.getElementById('pageName');
     const footer = document.getElementById('footer');
     const closeArea = document.getElementById('closeArea');
-    const infoArea = document.getElementById('infoArea');
+    const bookmarksArea = document.getElementById('bookmarksArea');
 
-    infoIcon.addEventListener('click', function() {
+    bookmarksIcon.addEventListener('click', function() {
         rateForm.style.display = 'none';
         pageName.style.display = 'none';
         footer.style.display = 'none';
         closeArea.style.display = 'block';
-        infoArea.style.display = 'block';
+        bookmarksArea.style.display = 'block';
     });
 
     closeIcon.addEventListener('click', function() {

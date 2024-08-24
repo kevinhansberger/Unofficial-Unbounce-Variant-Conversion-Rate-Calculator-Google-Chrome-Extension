@@ -6,10 +6,12 @@ document.addEventListener('DOMContentLoaded', function() {
             var url = activeTab.url;
             if (url.startsWith("https://app.unbounce.com/") && url.endsWith("overview")) {
                 document.getElementById('valArea').style.display = 'none';
+                document.getElementById('bookmarksArea').style.display = 'none';
             } else {
                 document.getElementById('rateForm').style.display = 'none';
                 document.getElementById('footer').style.display = 'none';
                 document.getElementById('valArea').style.display = 'block';
+                document.getElementById('bookmarksArea').style.display = 'block';
             }
         });
     }
