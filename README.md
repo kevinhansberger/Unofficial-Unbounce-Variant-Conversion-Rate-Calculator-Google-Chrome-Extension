@@ -15,3 +15,5 @@ Variant B - Title: Added large review widget | (1339.csV 52.csC)
 Variant C - Title: Added small review widget | (1221.csV 43.csC)
 
 Remove commas from numbers and make sure the Champion Starting Visitors number is followed by a ".csV" and make sure the Champion Starting Conversions number is followed by a ".csC" for the calculations to be accurate.
+
+If you'd like to bookmark a specific Unbounce page, you may do so by clicking the bookmark icon. This will add the current page to your list of bookmarks which can all be viewed by clicking the list icon. This will save you time, so you don't need to navigate back to unbounce and search for the specific page. If you'd like to remove the bookmark, simply click the blue bookmark icon.
