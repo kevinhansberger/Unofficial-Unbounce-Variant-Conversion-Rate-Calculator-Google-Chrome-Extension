@@ -1,17 +1,25 @@
 document.addEventListener('DOMContentLoaded', function() {
     const bookmarkIcon = document.getElementById('bookmarkIcon');
     const bookmarksArea = document.getElementById('bookmarksArea');
+    const bookmarksImage = document.getElementById('bookmarksImage'); // Assuming this is the element for bookmarks.png
 
     // Load the current page URL and set up bookmarks
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
         const currentUrl = tabs[0].url;
+
+        // Skip processing if the current URL is a chrome:// URL
+        if (currentUrl.startsWith('chrome://')) {
+            return;
+        }
+
         const pageName = tabs[0].title;
 
-        // Load bookmarks from storage
+        // Load bookmarks from storage and update the UI
         chrome.storage.sync.get(['bookmarks'], function(result) {
             const bookmarks = result.bookmarks || [];
             updateBookmarkIcon(bookmarks, currentUrl);
             updateBookmarksArea(bookmarks);
+            toggleBookmarksImageVisibility(bookmarks);
         });
 
         // Handle bookmarking/unbookmarking
@@ -33,6 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Save updated bookmarks to storage
                 chrome.storage.sync.set({ bookmarks }, function() {
                     updateBookmarksArea(bookmarks);
+                    toggleBookmarksImageVisibility(bookmarks);
                 });
             });
         });
@@ -42,6 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function updateBookmarkIcon(bookmarks, currentUrl) {
         const isBookmarked = bookmarks.some(bookmark => bookmark.url === currentUrl);
         bookmarkIcon.src = isBookmarked ? "/imgs/bookmark-checked.png" : "/imgs/bookmark-unchecked.png";
+        toggleBookmarksImageVisibility(bookmarks);
     }
 
     // Update bookmarksArea to list all bookmarked URLs
@@ -65,6 +75,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 link.textContent = bookmark.title;
                 link.target = "_blank"; // Open the link in a new tab
                 link.style.display = 'block'; // Make each link appear on a new line
+
+                // Apply style if set
+                if (bookmark.style === 'ultra-bold') {
+                    link.style.fontWeight = '900'; // Ultra bold
+                }
+
                 bookmarksArea.appendChild(link);
 
                 // Add a <br> element after each link
@@ -73,4 +89,23 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     }
+
+    // Show or hide the bookmarks.png icon based on whether there are any bookmarks
+    function toggleBookmarksImageVisibility(bookmarks) {
+        if (bookmarks.length === 0) {
+            bookmarksIcon.style.display = 'none';
+        } else {
+            bookmarksIcon.style.display = 'inline';
+        }
+    }
+
+    // Listen for messages to update bookmark styles
+    chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+        if (request.action === 'updateBookmarkStyles') {
+            chrome.storage.sync.get(['bookmarks'], function(result) {
+                updateBookmarksArea(result.bookmarks || []);
+                toggleBookmarksImageVisibility(result.bookmarks || []);
+            });
+        }
+    });
 });
