@@ -1,7 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
     const bookmarkIcon = document.getElementById('bookmarkIcon');
+    const monitorIcon = document.getElementById('monitorIcon'); // Assuming monitorIcon is already defined in stats.html
     const bookmarksArea = document.getElementById('bookmarksArea');
     const bookmarksImage = document.getElementById('bookmarksImage'); // Assuming this is the element for bookmarks.png
+    const bookmarksIcon = document.getElementById('bookmarksIcon'); // Assuming this is the id for bookmarks.png icon in stats.html
 
     // Load the current page URL and set up bookmarks
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
@@ -12,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
         chrome.storage.sync.get(['bookmarks'], function(result) {
             const bookmarks = result.bookmarks || [];
             updateBookmarkIcon(bookmarks, currentUrl);
+            updateMonitorIcon(bookmarks, currentUrl);
             updateBookmarksArea(bookmarks);
             toggleBookmarksImageVisibility(bookmarks);
         });
@@ -35,6 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Save updated bookmarks to storage
                 chrome.storage.sync.set({ bookmarks }, function() {
                     updateBookmarksArea(bookmarks);
+                    updateMonitorIcon(bookmarks, currentUrl);
                     toggleBookmarksImageVisibility(bookmarks);
                 });
             });
@@ -45,7 +49,12 @@ document.addEventListener('DOMContentLoaded', function() {
     function updateBookmarkIcon(bookmarks, currentUrl) {
         const isBookmarked = bookmarks.some(bookmark => bookmark.url === currentUrl);
         bookmarkIcon.src = isBookmarked ? "/imgs/functs/bookmark-checked.png" : "/imgs/functs/bookmark-unchecked.png";
-        toggleBookmarksImageVisibility(bookmarks);
+    }
+
+    // Update monitor icon based on whether the current URL is bookmarked
+    function updateMonitorIcon(bookmarks, currentUrl) {
+        const isBookmarked = bookmarks.some(bookmark => bookmark.url === currentUrl);
+        monitorIcon.style.display = isBookmarked ? "inline" : "none";
     }
 
     // Update bookmarksArea to list all bookmarked URLs
@@ -98,6 +107,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (request.action === 'updateBookmarkStyles') {
             chrome.storage.sync.get(['bookmarks'], function(result) {
                 updateBookmarksArea(result.bookmarks || []);
+                updateMonitorIcon(result.bookmarks || [], window.location.href);
                 toggleBookmarksImageVisibility(result.bookmarks || []);
             });
         }
