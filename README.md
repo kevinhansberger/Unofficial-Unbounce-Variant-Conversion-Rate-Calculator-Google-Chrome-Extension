@@ -8,7 +8,8 @@ Instead of manual calculations, the extension instantly pulls and processes stat
 
 To ensure accurate calculations, include Champion Starting Visitors and Conversions in each variant's title, formatted like this:
 
-Variant B - Title: Added large review widget | (1339.csV 52.csC)
+Variant B - Title: Added large review widget | (1339.csV 52.csC
+  
 Variant C - Title: Added small review widget | (1221.csV 43.csC)
 
 Remove commas from numbers and make sure the Champion Starting Visitors number is followed by a ".csV" and make sure the Champion Starting Conversions number is followed by a ".csC" for the calculations to be accurate.
