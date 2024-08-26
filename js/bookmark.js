@@ -6,12 +6,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Load the current page URL and set up bookmarks
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
         const currentUrl = tabs[0].url;
-
-        // Skip processing if the current URL is a chrome:// URL
-        if (currentUrl.startsWith('chrome://')) {
-            return;
-        }
-
         const pageName = tabs[0].title;
 
         // Load bookmarks from storage and update the UI
