@@ -3,7 +3,7 @@ chrome.runtime.onInstalled.addListener(function(details) {
         // Create the notification
         chrome.notifications.create({
             type: "basic",
-            iconUrl: "../imgs/noti128.png",
+            iconUrl: "../imgs/notis/noti128.png",
             title: "Extension Updated!",
             message: "The Unbounce Variant Conversion Rate Calculator has been updated. Click to see what's new.",
             priority: 2

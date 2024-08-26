@@ -31,11 +31,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (index === -1) {
                     // Add bookmark
                     bookmarks.push({ url: currentUrl, title: pageName });
-                    bookmarkIcon.src = "/imgs/bookmark-checked.png";
+                    bookmarkIcon.src = "/imgs/functs/bookmark-checked.png";
                 } else {
                     // Remove bookmark
                     bookmarks.splice(index, 1);
-                    bookmarkIcon.src = "/imgs/bookmark-unchecked.png";
+                    bookmarkIcon.src = "/imgs/functs/bookmark-unchecked.png";
                 }
 
                 // Save updated bookmarks to storage
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Update bookmark icon based on whether the current URL is bookmarked
     function updateBookmarkIcon(bookmarks, currentUrl) {
         const isBookmarked = bookmarks.some(bookmark => bookmark.url === currentUrl);
-        bookmarkIcon.src = isBookmarked ? "/imgs/bookmark-checked.png" : "/imgs/bookmark-unchecked.png";
+        bookmarkIcon.src = isBookmarked ? "/imgs/functs/bookmark-checked.png" : "/imgs/functs/bookmark-unchecked.png";
         toggleBookmarksImageVisibility(bookmarks);
     }
 
