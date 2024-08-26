@@ -1,11 +1,11 @@
 {
   "manifest_version": 3,
   "name": "Unbounce Variant True Conversion Rate Calculator",
-  "version": "2.05",
+  "version": "2.06.01",
   "description": "Automatically calculate Unbounce variant conversion rate against Champion using proper traffic.",
   "action": {
     "default_popup": "stats.html",
-    "default_icon": "imgs/icon128.png"
+    "default_icon": "imgs/exten/icon128.png"
   },
   "permissions": [
     "activeTab",
@@ -17,9 +17,11 @@
     "service_worker": "js/background.js"
   },
   "icons": {
-    "16": "imgs/icon16.png",
-    "48": "imgs/icon48.png",
-    "128": "imgs/icon128.png",
-    "128": "imgs/noti128.png"
+    "16": "imgs/exten/icon16.png",
+    "48": "imgs/exten/icon48.png",
+    "128": "imgs/exten/icon128.png",
+    "128": "imgs/notis/update128.png",
+    "128": "imgs/notis/winner128.png",
+    "128": "imgs/notis/loser128.png"
   }
 }
