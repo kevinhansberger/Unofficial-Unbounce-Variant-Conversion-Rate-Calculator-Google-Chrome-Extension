@@ -1,6 +1,7 @@
-08.25.2024:
+08.26.2024:
 <ul>
 <li>Added the functionality where if there are no bookmarks, then the Bookmark List icon is hidden.</li>
+<li>Added notifications functionality to extension.</li>
 </ul>
 08.24.2024:
 <ul>
