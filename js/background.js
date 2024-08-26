@@ -11,5 +11,5 @@ chrome.runtime.onInstalled.addListener(function(details) {
     }
 });
 chrome.notifications.onClicked.addListener(function(notificationId) {
-    chrome.tabs.create({ url: "https://github.com/kevinhansberger/Unofficial-Unbounce-Variant-Conversion-Rate-Calculator-Google-Chrome-Extension/blob/v2.06_dev/updates.md" }); // Replace with your URL
+    chrome.tabs.create({ url: "https://github.com/kevinhansberger/Unofficial-Unbounce-Variant-Conversion-Rate-Calculator-Google-Chrome-Extension/blob/main/updates.md" }); // Replace with your URL
 });
